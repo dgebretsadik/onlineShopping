@@ -12,13 +12,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name="customerOrder")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private LocalDateTime orderDateTime;
 
-    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<Item> items;
 
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)

@@ -15,6 +15,9 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private double price;
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private ShoppingCart cart;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private Order order;
 }

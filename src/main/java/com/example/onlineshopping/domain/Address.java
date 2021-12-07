@@ -1,8 +1,10 @@
 package com.example.onlineshopping.domain;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -18,7 +20,7 @@ public class Address {
     private int zip;
     private String country;
     private String city;
-    private boolean primary;
+    private boolean isPrimary;
     @ManyToOne(cascade = CascadeType.ALL)
-    private Customer customer;
+    private Customer addressCustomer;
 }
