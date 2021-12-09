@@ -1,0 +1,11 @@
+language: java
+jdk:
+  - oraclejdk11
+
+before_script:
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('1q2w3e') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+
+services:
+  - mysq
+
+script: ./mvnw clean install
