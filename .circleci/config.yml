@@ -9,6 +9,6 @@ jobs:
       - run:
             name: Check Version
             command: java --version
-      -run:
+      - run:
             name: Clean Install
             command: ./mvnw clean install
