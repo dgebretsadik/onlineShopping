@@ -16,7 +16,7 @@ public class ShoppingCart {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToMany(mappedBy = "cart",cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cart",cascade = CascadeType.REMOVE)
     private List<Item> items;
 
     @OneToOne(mappedBy = "cart", fetch = FetchType.LAZY)

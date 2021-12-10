@@ -10,23 +10,9 @@ jobs:
           name: Clean Install
           command: ./mvnw clean install
 
-  LoadMySql:
-    docker:
-      - image: circleci/mysql:8.0.4
-        environment:
-          MYSQL_ROOT_PASSWORD: 1q2w3e
-          MYSQL_DATABASE: onlineShopping
-          MYSQL_USER: root
-          MYSQL_PASSWORD: 1q2w3e
-    steps:
-      - checkout
-      - run:
-          name: Waiting for mysql to be ready
-          command: dockerize -wait tcp://localhost:3306 -timeout 1m
 
 workflows:
   version: 2
   init_test:
     jobs:
-      - LoadMySql
       - LoadJ

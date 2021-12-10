@@ -18,6 +18,10 @@ public class Item {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private ShoppingCart cart;
+
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Order order;
+
+    @ManyToOne
+    private Product product;
 }
