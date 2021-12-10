@@ -19,7 +19,5 @@ public class ShoppingCart {
     @OneToMany(mappedBy = "cart",cascade = CascadeType.REMOVE)
     private List<Item> items;
 
-    @OneToOne(mappedBy = "cart", fetch = FetchType.LAZY)
-    private Customer customer;
 
 }

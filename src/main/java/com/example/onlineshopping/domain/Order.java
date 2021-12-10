@@ -27,6 +27,6 @@ public class Order {
 
     @Enumerated
     private OrderStatus orderStatus;
-    @OneToOne(mappedBy = "order", fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private Bill bill;
 }

@@ -21,13 +21,11 @@ public class Customer{
     @Enumerated
     private CustomerStatus status;
 
-    @OneToOne
-    private User user;
-
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Order> orders;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "addressCustomer", fetch = FetchType.LAZY)
     private List<Address> addresses;
+
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private ShoppingCart cart;
 }

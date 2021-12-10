@@ -17,7 +17,5 @@ public class Bill {
     private long id;
     private LocalDateTime dueDate;
     private double total;
-    @OneToOne(fetch = FetchType.LAZY)
-    private Order order;
 
 }

@@ -19,8 +19,6 @@ public class Retailer {
     private String lastName;
     private int rating;
 
-    @OneToOne
-    private User user;
     @OneToMany(mappedBy = "retailer",cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Product> products;
 }

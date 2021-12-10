@@ -29,6 +29,9 @@ public class User {
     private String email;
     @OneToOne
     private Role role;
-    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private Customer customer;
+
+    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    private Retailer retailer;
 }
