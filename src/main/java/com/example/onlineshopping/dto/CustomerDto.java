@@ -1,14 +1,20 @@
 package com.example.onlineshopping.dto;
 
 import com.example.onlineshopping.domain.CustomerStatus;
+import com.example.onlineshopping.domain.User;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CustomerDto implements Serializable {
-    private final long id;
-    private final String firstName;
-    private final String lastName;
-    private final CustomerStatus status;
+    private  long id;
+    private  String firstName;
+    private  String lastName;
+    private  CustomerStatus status;
+    private User user;
 }

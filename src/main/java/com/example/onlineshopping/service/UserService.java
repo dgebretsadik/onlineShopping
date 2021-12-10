@@ -1,6 +1,8 @@
 package com.example.onlineshopping.service;
 
+import com.example.onlineshopping.domain.Role;
 import com.example.onlineshopping.domain.User;
+import com.example.onlineshopping.dto.CustomerDto;
 import com.example.onlineshopping.globalExecption.UserNotFoundException;
 import org.modelmapper.ModelMapper;
 import com.example.onlineshopping.dto.UserDto;
@@ -20,15 +22,28 @@ public class UserService {
         }
         return modelMapper.map(user, UserDto.class);
     }
+
     public UserDto createUser(UserDto userDto){
         return modelMapper.map(userRepository.save(modelMapper.map(userDto, User.class)), UserDto.class);
     }
+
+//    public UserDto createCustomer(CustomerDto customerDto){
+//        User user = customerDto.getUser();
+//        user.setRole(new Role("CUSTOMER"));
+//        user = userRepository.save(user);
+//        customerDto.setUser(user);
+////        customerRepository.save(modelMapper.map(customerDto, Customer.class));
+//        return modelMapper.map(user, UserDto.class);
+//    }
+
     public void deleteUser(UserDto userDto){
         userRepository.delete(modelMapper.map(userDto, User.class));
     }
+
     public void deleteUserById(long id){
         userRepository.deleteById(id);
     }
+
     public UserDto updateUser(long id, UserDto userDto){
         Boolean exists = userRepository.existsById(id);
         if(!exists)
